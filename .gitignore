@@ -1,0 +1,6 @@
+main.py
+.idea/
+!project/MiniBlog/migrations/0001_initial.py
+project/MiniBlog/migrations/
+project/MiniBlog/__pycache__/
+project/project/__pycache__/
