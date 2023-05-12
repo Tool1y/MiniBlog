@@ -15,8 +15,8 @@
 
 		<div id="navigation">
 			<ul>
-			    <li><a href="#" class="active">Главная</a></li>
-			    <li><a href="#">Админ панель</a></li>
+			    <li><a href="/" class="active">Главная</a></li>
+			    <li><a href="/admin">Админ панель</a></li>
 			    
 			</ul>
 		</div>
@@ -29,15 +29,16 @@
 					{% for post in posts %}
 					<div class="item">
 						<div class="image left">
-							<a href="#"><img src="css/images/project01.jpg" alt="" /></a>
+							<a href="#"><img src="{{ post.image.url }}" alt="img" width="200px" /></a>
 						</div>
 						<div class="text left">
-							<h4>{{post.title}}</h4>
+							<h4><a href="{{ post.id }}">{{post.title}}</a></h4>
 							<p>{{post.description}}</p>
 							<p>Автор: {{post.author}} </p>
 						</div>
 						<div class="cl">&nbsp;</div>
 					</div>
+
 					{% endfor %}
 				</div>
 			</div>
