@@ -1,29 +1,12 @@
-<!DOCTYPE>
-{% load static %}
-<html >
-<head>
-	<title>Мой блог</title>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="{% static 'MiniBlog/css/style.css' %}" type="text/css" media="all" />
+{% extends 'MiniBlog/base.html' %}
 
-	<link rel="shortcut icon" href="css/images/favicon.ico" />
+{% block title%}Мой блог{%endblock%}
 
-</head>
-<body>
-<div class="shell">
-	<div class="border">
-
-		<div id="navigation">
-			<ul>
-			    <li><a href="/" class="active">Главная</a></li>
-			    <li><a href="/admin">Админ панель</a></li>
-			    
-			</ul>
-		</div>
+{% block content%}
 
 		<div id="main">
 			<div id="content" class="left">
-				
+
 				<div class="projects">
 					<h3>Записи</h3>
 					{% for post in posts %}
@@ -34,24 +17,16 @@
 						<div class="text left">
 							<h4><a href="{{ post.id }}">{{post.title}}</a></h4>
 							<p>{{post.description}}</p>
-							<p>Автор: {{post.author}} </p>
+							<b>Автор: {{post.author}} </b>
 						</div>
 						<div class="cl">&nbsp;</div>
 					</div>
-
 					{% endfor %}
 				</div>
 			</div>
-			
+
 			<div class="cl">&nbsp;</div>
 		</div>
-		
 
-	</div>
-	
-	<div id="footer">
-		<p class="copy right">Copyright &copy;  2022 </p>
-	</div>
-</div>
-</body>
-</html>
+
+{% endblock %}

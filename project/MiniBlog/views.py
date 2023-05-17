@@ -3,6 +3,7 @@ from django.views import View
 from .models import Post, Likes
 from .forms import CommentsForm
 
+
 # Create your views here.
 class PostView(View):
     def get(self, request):
@@ -16,7 +17,8 @@ class PostView(View):
 class PostDetail(View):
     def get(self, request, pk):
         post = Post.objects.get(id=pk)
-        return render(request, 'MiniBlog/blog_detail.html', {'post': post})
+        form = CommentsForm()
+        return render(request, 'MiniBlog/blog_detail.html', {'post': post, 'form': form})
 
 
 class AddComments(View):

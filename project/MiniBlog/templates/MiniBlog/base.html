@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+	<title>{% block title %} {% endblock %}</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="{% static 'MiniBlog/css/style.css' %}" type="text/css" media="all" />
+	<link rel="shortcut icon" href="css/images/favicon.ico" />
+</head>
+<body>
+  <div class="shell">
+	  <div class="border">
+		  <div id="navigation">
+			<ul>
+			    <li><a href="/" class="active">Главная</a></li>
+			    <li><a href="/admin">Админ панель</a></li>
+
+			</ul>
+		</div>
+	  {% block content %}
+
+	  {% endblock%}
+
+
+	  </div>
+	  {% block footer%}
+	  <div id="footer">
+			<p class="copy right">Copyright &copy;  2022 </p>
+		</div>
+	  {%endblock%}
+  </div>
+</body>
+</html>

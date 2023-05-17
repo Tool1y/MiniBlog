@@ -1,28 +1,9 @@
-<!DOCTYPE>
-{% load static %}
-<html >
-<head>
-	<title>Мой блог</title>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="{% static 'MiniBlog/css/style.css' %}" type="text/css" media="all" />
+{% extends 'MiniBlog/base.html' %}
+{% block title %}{{post.title}}{% endblock %}
 
-	<link rel="shortcut icon" href="css/images/favicon.ico" />
-
-</head>
-<body>
-<div class="shell">
-	<div class="border">
-
-		<div id="navigation">
-			<ul>
-				<li><a href="/" class="active">Главная</a></li>
-			    <li><a href="/admin">Админ панель</a></li>
-			</ul>
-		</div>
-
+{% block content%}
 		<div id="main">
 			<div id="content" class="left">
-
 				<div class="projects">
 					<h3>{{ post.title }}</h3>
                   <p align="left" style="margin-bottom: 20px;">
@@ -42,21 +23,12 @@
 				<div>
 					<form action="{% url 'add_comments' post.id %}" method="post">
 						{% csrf_token %}
-						<div>
-							<label>Ваш комментарий</label>
-							<textarea name="text_comments"></textarea>
-						</div>
-						<div>
-							<label>Ваше имя</label>
-							<input type="text" name="name">
-						</div>
-						<p>
-							<label>Ваше email</label>
-							<input type="text" name="email">
-						</p>
-						<p>
-							<input type="submit" value="Отправить">
-						</p>
+						<table>
+							{{ form.as_table }}
+						</table>
+
+
+
 					</form>
 				</div>
 			</div>
@@ -81,11 +53,7 @@
 		</div>
 
 
-	</div>
 
-	<div id="footer">
-		<p class="copy right">Copyright &copy;  2022 </p>
-	</div>
-</div>
-</body>
-</html>
+
+{% endblock %}
+
