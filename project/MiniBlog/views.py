@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from .models import Post, Likes
-from .forms import CommentsForm
+from .forms import CommentsForm, RegistrationUserForm
 
 
 # Create your views here.
@@ -63,3 +63,12 @@ class DelLike(View):
             return redirect(f'/{pk}')
         except:
             return redirect(f'/{pk}')
+
+
+class Registration(View):
+    def get(self, request):
+        form = RegistrationUserForm()
+        context = {
+            'form': form,
+        }
+        return render(request, 'registration/register.html', context)

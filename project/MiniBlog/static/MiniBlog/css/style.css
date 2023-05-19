@@ -23,7 +23,7 @@ textarea { overflow:auto; }
 .right, .alignright { float: right; display: inline; }
 
 
-.shell { width: 980px; margin: 0 auto; }
+.shell { margin: 0 auto; display: flex; justify-content: center;}
 .border { border: 1px solid #e8e8e8; background: #fff; position: relative; }
 
 
@@ -97,4 +97,19 @@ textarea { overflow:auto; }
     border-radius: 15px;
 }
 
+aside {
+    border: 1px solid #e8e8e8; background: #fff; position: relative;
+    margin-top: 1px;
+    margin-left: 30px;
+    width: 200px;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 12px;
+
+}
+
+aside form {
+    padding: 5px;
+    padding-left: 20px;
+}
 
