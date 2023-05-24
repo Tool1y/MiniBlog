@@ -1,10 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title%} {% endblock %}</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'><link rel="stylesheet" href="{% static 'MiniBlog/css/login.css' %}">
 </head>
 <body>
     {% block content %} {% endblock %}
+<script  src="{% static 'MiniBlog/js/login.js' %}"></script>
 </body>
 </html>

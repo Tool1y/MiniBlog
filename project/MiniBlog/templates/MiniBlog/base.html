@@ -15,9 +15,12 @@
 			<ul>
 			    <li><a href="/" class="active">Главная</a></li>
 			    <li><a href="admin/">Админ панель</a></li>
-				<li style="float:right;"><a href="{% url 'registration' %}">Регистрация</a></li>
-				<li style="float:right;"><a href="{% url 'login' %}">Вход</a></li>
-
+				{% if not user.is_authenticated %}
+					<li style="float:right;"><a href="{% url 'registration' %}">Регистрация</a></li>
+					<li style="float:right;"><a href="{% url 'login' %}">Вход</a></li>
+				{% else %}
+					<li style="float:right;"><a href="{% url 'logout' %}">Выход</a></li>
+				{% endif %}
 			</ul>
 
 		</div>

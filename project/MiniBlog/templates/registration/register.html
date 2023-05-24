@@ -5,8 +5,19 @@
 
 {% block content %}
   <main>
-    <form action="">
-      {{ form.as_p }}
+    <form action="{% url 'registration' %}" method="post" class="register-form">
+      {% csrf_token %}
+      <div class="login-page">
+        <div class="form">
+
+            <input name='username' type="text" placeholder="Логин"/>
+            <input name='password1' type="password" placeholder="Пароль"/>
+            <input name='password2' type="password" placeholder="Потвердить пароль"/>
+            <input name='email' type="email" placeholder="email address"/>
+            <button>Зарегистрироваться</button>
+            <p class="message"><a href="{% url 'blogs' %}">На сайт</a> | <a href="{% url 'login' %}">Войти</a></p>
+        </div>
+      </div>
     </form>
   </main>
 {% endblock %}

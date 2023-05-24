@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views import View
 from .models import Post, Likes
@@ -71,4 +72,15 @@ class Registration(View):
         context = {
             'form': form,
         }
+        return render(request, 'registration/register.html', context)
+
+    def post(self, request):
+        form = RegistrationUserForm(request.POST)
+        context = {
+            'form': form
+        }
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+
         return render(request, 'registration/register.html', context)

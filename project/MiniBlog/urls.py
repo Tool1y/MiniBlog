@@ -3,8 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.PostView.as_view(), name='blogs'),
-    path('account/', include('django.contrib.auth.urls')),
-    path('accont/register', views.Registration.as_view(), name='registration'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register', views.Registration.as_view(), name='registration'),
     path('<int:pk>/', views.PostDetail.as_view(), name='blog_detail'),
     path('review/<int:pk>', views.AddComments.as_view(), name='add_comments'),
     path('<int:pk>/add_likes/', views.AddLike.as_view(), name='add_likes'),
