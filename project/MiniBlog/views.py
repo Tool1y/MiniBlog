@@ -67,12 +67,14 @@ class DelLike(View):
 
 
 class Registration(View):
+    template_name = 'registration/register.html'
+
     def get(self, request):
         form = RegistrationUserForm()
         context = {
             'form': form,
         }
-        return render(request, 'registration/register.html', context)
+        return render(request, self.template_name, context)
 
     def post(self, request):
         form = RegistrationUserForm(request.POST)
@@ -83,4 +85,4 @@ class Registration(View):
             form.save()
             return redirect('login')
 
-        return render(request, 'registration/register.html', context)
+        return render(request, self.template_name, context)

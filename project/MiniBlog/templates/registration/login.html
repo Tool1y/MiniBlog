@@ -21,15 +21,15 @@
     <h1>Login</h1>
     <div class="content">
       <div class="input-field">
-        <input type="text" name="username" placeholder="login">
+        <input type="text" name="username" placeholder="Логин">
       </div>
       <div class="input-field">
-        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Пароль">
       </div>
-      <a href="#" class="link">Forgot Your Password?</a>
+      <a href="#" class="link">Забыли пароль?</a> | <a href="{% url 'registration' %}" class="link">Зарегистрироваться</a>
     </div>
     <div class="action">
-      <button>Sign in</button>
+      <button>Войти</button>
     </div>
       {% if error %}
       <p>{{error}}</p>

@@ -1,23 +1,50 @@
 {% extends 'registration/base.html' %}
 
-{% block title%}Login{% endblock %}
+{% block title%}Registration{% endblock %}
 
 
 {% block content %}
-  <main>
-    <form action="{% url 'registration' %}" method="post" class="register-form">
-      {% csrf_token %}
-      <div class="login-page">
-        <div class="form">
+<!--<form action="{% url 'registration' %}" method="post">-->
 
-            <input name='username' type="text" placeholder="Логин"/>
-            <input name='password1' type="password" placeholder="Пароль"/>
-            <input name='password2' type="password" placeholder="Потвердить пароль"/>
-            <input name='email' type="email" placeholder="email address"/>
-            <button>Зарегистрироваться</button>
-            <p class="message"><a href="{% url 'blogs' %}">На сайт</a> | <a href="{% url 'login' %}">Войти</a></p>
-        </div>
+<!--  {% csrf_token %}-->
+<!--  {% if error %}-->
+<!--      <p>{{error}}</p>-->
+<!--  {%endif%}-->
+<!--  {{ form.as_p }}-->
+
+<!--  <input type="submit" value="Регистрация">-->
+
+<!--</form>-->
+
+
+<div class="login-form">
+  <form action="{% url 'registration' %}" method="post">
+      {%csrf_token%}
+    <h1>Регистрация</h1>
+    <div class="content">
+      <div class="input-field">
+        <input type="text" name="username" placeholder="Логин">
       </div>
-    </form>
-  </main>
+        <p class="error-field">{{ form.username.errors.as_text }}</p>
+
+      <div class="input-field">
+        <input type="password" name="password1" placeholder="Пароль">
+      </div>
+        <p class="error-field">{{ form.password1.errors.as_text }}</p>
+      <div class="input-field">
+        <input type="password" name="password2" placeholder="Потвердите пароль">
+      </div>
+        <p class="error-field">{{ form.password2.errors.as_text }}</p>
+      <div class="input-field">
+        <input type="email" name="email" placeholder="email">
+      </div>
+        <p class="error-field">{{ form.email.errors.as_text }}</p>
+      <a href="{% url 'blogs' %}" class="link">На страницу</a> | <a href="{% url 'login' %}" class="link">Войти</a>
+    </div>
+    <div class="action">
+        <button>Регистрация</button>
+    </div>
+
+  </form>
+</div>
 {% endblock %}
