@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 class RegistrationUserForm(UserCreationForm):
     username = forms.CharField(label="Логин", min_length=5, max_length=150)
-    email = forms.EmailField(label='email')
+    email = forms.EmailField(label='email', required=True)
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Потверждение пароля', widget=forms.PasswordInput)
 
